@@ -25,9 +25,12 @@ const getDB = async () => {
 
 // Middlewares
 app.use(cors({
-    origin: ['*'],
+    origin: '*', // or specify the domains you want to allow
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true
 }));
+
 app.use(express.json());
 
 // Routes
